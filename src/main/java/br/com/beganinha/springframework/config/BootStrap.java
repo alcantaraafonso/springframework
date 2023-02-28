@@ -1,7 +1,7 @@
 package br.com.beganinha.springframework.config;
 
 import br.com.beganinha.springframework.entity.Users;
-import br.com.beganinha.springframework.repository.UsersRepository;
+import br.com.beganinha.springframework.repository.UsersRepositoryMongodb;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -14,8 +14,11 @@ import java.util.List;
 @Slf4j
 public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
 
+//    @Autowired
+//    private UsersRepositoryMySql usersRepository;
+
     @Autowired
-    private UsersRepository usersRepository;
+    private UsersRepositoryMongodb usersRepository;
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -29,7 +32,7 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
 
         }
 
-        Users user = usersRepository.getById(1L);
+        Users user = usersRepository.findById("63fe8a018847e11f865888fb").get();
         log.info(user.toString());
 
     }
