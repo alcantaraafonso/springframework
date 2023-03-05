@@ -27,13 +27,16 @@ public class BootStrap implements ApplicationListener<ContextRefreshedEvent> {
         if(users.isEmpty()) {
 
             createUser("Afonso", "alcantara.afonso@gmail.com");
-            createUser("Afonsinho", "alcantara.afonso@gmail.com");
-            createUser("Maria", "alcantara.afonso@gmail.com");
+            createUser("Afonsinho", "alcantara.afonsinho@gmail.com");
+            createUser("Maria", "alcantara.maria@gmail.com");
 
         }
 
-        Users user = usersRepository.findById("63fe8a018847e11f865888fb").get();
+        Users user = usersRepository.findById("6404dcdebc539f38a58ca079").get();
         log.info(user.toString());
+
+        Users users1 = usersRepository.findByEmailQualquerCoisa("alcantara.afonso@gmail.com");
+        log.info(users1.toString());
 
     }
 

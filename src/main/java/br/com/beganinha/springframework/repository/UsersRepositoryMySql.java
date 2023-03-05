@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 //@Repository - public interface UsersRepositoryMySql extends JpaRepository<Users, Long>
+//Foi comentado para que o Spring suba somente o Repository do MongoDB
 public interface UsersRepositoryMySql {
 
     /**
